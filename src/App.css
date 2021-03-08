@@ -1,9 +1,5 @@
 /* Copyright (C) 2007-2019, GoodData(R) Corporation. All rights reserved. */
 
-.App {
-  text-align: center;
-}
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -22,6 +18,11 @@
 
 .App-intro {
   font-size: large;
+}
+
+.title-gross-in-month {
+  font-weight: bold;
+  font-size: 32px;
 }
 
 @keyframes App-logo-spin {

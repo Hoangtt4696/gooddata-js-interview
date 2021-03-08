@@ -1,31 +1,30 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 
-const _getProps = (props) => {
-  const originalProps = ["defaultValue", "value", "onChange", "placeholder"];
-
-  return originalProps.reduce(
-    (propResults, prop) =>
-      props.hasOwnProperty(prop)
-        ? { ...propResults, [prop]: props[prop] }
-        : propResults,
-    {}
-  );
-};
-
 const Select = (props) => {
-  const { options } = props;
+  const { options, defaultValue, value, onChange, placeholder } = props;
   const selectOptions = useMemo(() => {
-    if (!options || !Array.isArray(options) || !options.length) {
+    if (!Array.isArray(options) || !options.length) {
       return null;
     }
 
     return options.map(({ value, label }) => (
-      <option key={value} value={value}>{label}</option>
+      <option key={value} value={value}>
+        {label}
+      </option>
     ));
   }, [options]);
 
-  return <select {..._getProps(props)}>{selectOptions}</select>;
+  return (
+    <select
+      defaultValue={defaultValue}
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+    >
+      {selectOptions}
+    </select>
+  );
 };
 
 Select.propTypes = {
